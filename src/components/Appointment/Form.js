@@ -41,36 +41,10 @@ export default function Form(props) {
           }}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>Save</Button>
+          <Button confirm onClick={() => {props.onSave(student, interviewer)}}>Save</Button>
         </section>
       </section>
     </main>
   )
 }
 
-{/* 
-        <form autoComplete="off">
-          <input
-            className="appointment__create-input text--semi-bold"
-            name="name"
-            type="text"
-            placeholder="Enter Student Name"
-            onChange={(event) => {
-              setStudent(event.target.value)
-            }}
-          />
-        </form>
-        <InterviewerList
-        />
-      
-      <section className="appointment__card-right">
-        <section className="appointment__actions">
-          <Button danger onClick={() => {
-            cancel();
-            reset();
-          }}>
-            Cancel
-          </Button>
-          <Button confirm onClick={props.onSave}>Save</Button>
-        </section>
-      </section> */}

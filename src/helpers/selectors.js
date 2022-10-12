@@ -12,9 +12,7 @@ export function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
-  console.log("interview obj from selectors-15: ", interview)
-  console.log("student from selectors-16: ", interview.student)
-  console.log("interviewer from selectors-17: ", interview.interviewer)
+
   const student = interview.student;
   const interviewer = state.interviewers[interview.interviewer];
   const output = {
@@ -22,4 +20,18 @@ export function getInterview(state, interview) {
     interviewer: interviewer
   }
   return output;
+}
+
+export function getInterviewersForDay(state, day) {
+
+  let arr = [];
+
+  state.days.map((dayData) => {
+    if (dayData.name === day) {
+      dayData.interviewers.forEach((id) => {
+        arr.push(state.interviewers[id])
+      })
+    }
+  })
+  return arr;
 }
