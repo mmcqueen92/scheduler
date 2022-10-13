@@ -1,6 +1,7 @@
 export function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
   let arr = [];
+  
   state.days.map((dayData) => {
     if (dayData.name === day) {
       dayData.appointments.forEach((id) => {
