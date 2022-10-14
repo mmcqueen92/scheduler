@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 export default function useApplicationData() {
-  console.log("useApplicationData is being run");
+  
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -33,8 +33,7 @@ export default function useApplicationData() {
 
 
   function updateSpots(appId, newState) {
-    console.log("this is the state updateSpots is working with: ", newState)
-    console.log("appId: ", appId)
+
     let today = {};
     for (const dayId in newState.days) {
 
@@ -45,18 +44,13 @@ export default function useApplicationData() {
     };
 
 
-
-
-
-
-
     let todaysAppointments = today.appointments.map((id) => {
       return newState.appointments[id]
     });
 
     const emptyAppointments = todaysAppointments.filter((appointment) => !appointment.interview);
     let freeSpots = emptyAppointments.length;
-    console.log("freeSpots: ", freeSpots)
+    
     let newDay = {};
 
     newDay = { ...newState.days[today.id - 1], spots: freeSpots };
@@ -79,7 +73,7 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    console.log("appointments: ", appointments)
+ 
 
     // PUT REQUEST TO /api/appointments/:id
     const newState = {...state, appointments}

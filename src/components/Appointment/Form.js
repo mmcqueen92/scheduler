@@ -8,7 +8,6 @@ export default function Form(props) {
   const reset = () => {
     setStudent("");
     setInterviewer(null);
-    console.log('reset is being called!')
   }
   const cancel = props.onCancel;
 

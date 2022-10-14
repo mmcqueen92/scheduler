@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
-import axios from "axios";
+import React from "react";
+
 
 import "components/Application.scss";
 
 import DayList from "components/DayList"
-import InterviewerList from "components/InterviewerList";
+
 import "components/Appointment";
 import Appointment from "./Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
@@ -21,7 +21,7 @@ export default function Application(props) {
   } = useApplicationData();
 
  
-  console.log("this is the state being passed to getAppointmentsForDay: ", state)
+  
   const appointments = getAppointmentsForDay(state, state.day);
 
   const interviewers = getInterviewersForDay(state, state.day);
