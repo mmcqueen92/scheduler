@@ -84,7 +84,7 @@ export default function Appointment(props) {
     transition(EDIT)
   };
 
-  
+  console.log("value: ", props.value)
 
   return (
     <article className="appointment">
