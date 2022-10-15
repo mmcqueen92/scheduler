@@ -57,7 +57,7 @@ export default function Appointment(props) {
      
       .catch(error => {
         transition(ERROR_SAVE);
-        console.log("error: ", error);
+
       });
 
     } else if (!name || !interviewer) {
@@ -84,10 +84,10 @@ export default function Appointment(props) {
     transition(EDIT)
   };
 
-  console.log("value: ", props.value)
+  
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       { mode === EMPTY && (<Empty onAdd={() => {transition(CREATE)}} />) }
       { mode === SHOW && (
@@ -115,9 +115,9 @@ export default function Appointment(props) {
       interviewers={props.interviewers}
       interviewer={props.interview.interviewer.id}
       />)}
-      { mode === ERROR_SAVE && (<Error message="Error: Unable to save appointment. Please try again." onClose={back}/>)}
-      { mode === ERROR_DELETE && (<Error message="Error: Unable to delete appointment. Please try again." onClose={back}/>)}
-      { mode === ERROR_EMPTY_INPUT && (<Error message="Please enter a student name and select an interviewer." onClose={back}/>)}
+      { mode === ERROR_SAVE && (<Error message="Unable to save appointment. Please try again." onClose={back}/>)}
+      { mode === ERROR_DELETE && (<Error message="Unable to delete appointment. Please try again." onClose={back}/>)}
+      
       
     </article>
   )
