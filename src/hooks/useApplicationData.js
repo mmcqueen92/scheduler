@@ -76,7 +76,6 @@ export default function useApplicationData() {
     };
  
 
-    // PUT REQUEST TO /api/appointments/:id
     const newState = {...state, appointments}
 
     return axios.put(`/api/appointments/${id}`, { interview })
